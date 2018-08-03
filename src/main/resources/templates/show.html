@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Kalkulator BMI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/assets/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="fragments/header :: 'header'"></div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Twoje bmi wynosi:</h1>
+            <h2 th:text="${bmi}"/>
+            <h3 th:text="${info}"/>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/assets/js/bootstrap.js}"></script>
+
+</body>
+</html>

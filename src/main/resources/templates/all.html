@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tabela wyników</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: 'header'"></div>
+
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <table class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <tr class="list-unstyled-item list-hours-item d-flex">
+                            <th>Wartość oraz opis</th>
+                        </tr>
+                        <tr th:each="score : ${scores}" class="ml-auto">
+
+                            <td th:text="${score.indexBmi()}"></td>
+                            <td th:text="${score.info(score.indexBmi())}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section about-heading">
+    <div class="container">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/pani.jpg" alt="">
+        <div class="about-heading-content">
+            <div class="row">
+                <div class="col-xl-9 col-lg-10 mx-auto">
+                    <div class="bg-faded rounded p-5">
+                        <h2 class="section-heading mb-4">
+                            <span class="section-heading-upper">Normy BMI</span>
+                        </h2>
+
+                        <p>do 16: wygłodzenie</p>
+                        <p>od 16 do 17: wychudzenie</p>
+                        <p>od 17 do 18.5: niedowaga</p>
+                        <p>od 18.5 do 25: wartość prawidłowa</p>
+                        <p>od 25 do 30: nadwaga</p>
+                        <p>od 30 do 35: I stopień otyłości</p>
+                        <p>od 35 do 40: II stopień otyłości</p>
+                        <p>powyżej 40: III stopień otyłości</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div th:replace="fragments/footer :: 'footer'"></div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<!-- Script to highlight the active date in the hours list -->
+<script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+</script>
+
+</html>
